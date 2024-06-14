@@ -5,6 +5,11 @@ select * from layoff;
 
 
 -- correction of error in the country name --
+SELECT DISTINCT(country)
+FROM	layoff;
+
+
+
 select *
 from layoff
 where country = 'United States.'
@@ -31,11 +36,23 @@ SET	industry = 'Cryptocurrency'
 where industry LIKE 'Crypto%';
 
 
+--removal of extra spaces in between company names--
+SELECT 	company,
+		(TRIM(company))
+FROM	layoff;
+
+
+
+UPDATE	layoff
+SET		company = (TRIM(company));
+
+
 
 -- remove wrongly entered industry within the data--
 DELETE 
 FROM layoff
 WHERE industry = '0';
+
 
 
 
